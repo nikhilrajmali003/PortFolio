@@ -66,29 +66,53 @@ function About() {
       <div className="mt-12 text-center">
         <h1 className="text-[#38BDF8] text-2xl font-semibold">Projects</h1>
         <div className="mt-6 space-y-6 flex flex-col items-center">
-          {/* Project 1 */}
+          
+          {/* Hotel Management System */}
           <div className="bg-[#0a0a0a] p-6 rounded-lg shadow-lg w-full md:w-2/3 border border-gray-700">
             <h2 className="text-xl font-semibold text-[#ffffff]">
-              Library Management System 📚
+              Hotel Management System 🏨
             </h2>
             <p className="mt-2 text-gray-300">
-              A Java-based Library Management System utilizing OOP principles.
-              It efficiently manages book records, users, and transactions.
+              A Java-based Hotel Management System utilizing OOP principles. It
+              manages room bookings, guest details, and billing efficiently.
             </p>
             <ul className="list-disc ml-5 mt-2 text-gray-400 text-sm text-left">
-              <li>Encapsulation, Inheritance, and Polymorphism used.</li>
+              <li>Encapsulation, Inheritance, and Polymorphism applied.</li>
               <li>CLI-based user interface.</li>
               <li>File handling for data storage.</li>
             </ul>
             <a
-              href="your-github-repo-link"
+              href="https://github.com/nikhilrajmali003/Codalpha-Internship/tree/main/hotelreservesionsystem"
               className="inline-block mt-3 text-[#38BDF8] font-semibold hover:underline"
             >
               View Project →
             </a>
           </div>
 
-          {/* Project 2 */}
+          {/* Stock Trading Platform */}
+          <div className="bg-[#0a0a0a] p-6 rounded-lg shadow-lg w-full md:w-2/3 border border-gray-700">
+            <h2 className="text-xl font-semibold text-[#ffffff]">
+              Stock Trading Platform 📈
+            </h2>
+            <p className="mt-2 text-gray-300">
+              A Java-based Stock Trading Platform using OOP concepts. It allows
+              users to trade stocks, track portfolios, and analyze market
+              trends.
+            </p>
+            <ul className="list-disc ml-5 mt-2 text-gray-400 text-sm text-left">
+              <li>Object-oriented design for stock and user management.</li>
+              <li>Real-time stock price simulation.</li>
+              <li>File handling for transaction records.</li>
+            </ul>
+            <a
+              href="https://github.com/nikhilrajmali003/Codalpha-Internship/tree/main/stock%20trading%20platform"
+              className="inline-block mt-3 text-[#38BDF8] font-semibold hover:underline"
+            >
+              View Project →
+            </a>
+          </div>
+
+          {/* Student Grade Calculator */}
           <div className="bg-[#0a0a0a] p-6 rounded-lg shadow-lg w-full md:w-2/3 border border-gray-700">
             <h2 className="text-xl font-semibold text-[#ffffff]">
               Student Grade Calculator 🎓
@@ -98,19 +122,21 @@ function About() {
               their marks in different subjects.
             </p>
             <ul className="list-disc ml-5 mt-2 text-gray-400 text-sm text-left">
-              <li>Used conditional statements to determine grades (A, B, C).</li>
+              <li>
+                Used conditional statements to determine grades (A, B, C).
+              </li>
               <li>Handled multiple subjects and calculated percentage.</li>
               <li>Built using Java and Object-Oriented Programming (OOP).</li>
             </ul>
             <a
-              href="your-github-repo-link"
+              href="https://github.com/nikhilrajmali003/Codalpha-Internship/tree/main/Studentgradetracker"
               className="inline-block mt-3 text-[#38BDF8] font-semibold hover:underline"
             >
               View Project →
             </a>
           </div>
 
-          {/* Project 3 */}
+          {/* E-Commerce Shopping Website */}
           <div className="bg-[#0a0a0a] p-6 rounded-lg shadow-lg w-full md:w-2/3 border border-gray-700">
             <h2 className="text-xl font-semibold text-[#ffffff]">
               E-Commerce Shopping Website 🛒
