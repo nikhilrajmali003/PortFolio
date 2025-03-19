@@ -1,4 +1,11 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
 import java from "../../public/java.png";
 import mongoDB from "../../public/mongodb.jpg";
 import express from "../../public/express.png";
@@ -44,6 +51,21 @@ const cardItem = [
 ];
 
 function PortFolio() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkDevice = () => {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      const isMobileDevice = /android|iphone|ipad|ipod|windows phone/i.test(userAgent);
+      setIsMobile(isMobileDevice);
+    };
+
+    checkDevice();
+    window.addEventListener("resize", checkDevice);
+
+    return () => window.removeEventListener("resize", checkDevice);
+  }, []);
+
   return (
     <div
       name="Portfolio"
@@ -55,25 +77,56 @@ function PortFolio() {
           A showcase of technologies I have worked with.
         </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
-        {cardItem.map(({ id, logo, name, description }) => (
-          <div
-            key={id}
-            className="bg-[#121212] border border-gray-700 backdrop-blur-md rounded-xl shadow-lg p-5 text-center hover:scale-105 hover:shadow-lg hover:border-[#38BDF8] transition duration-300"
-          >
-            <img
-              src={logo}
-              className="w-24 h-24 mx-auto rounded-full border-2 border-[#38BDF8] p-2 shadow-md"
-              alt={`${name} Logo`}
-            />
-            <h2 className="text-xl font-semibold mt-3 text-[#E2E8F0]">
-              {name}
-            </h2>
-            <p className="text-gray-400 text-sm mt-2">{description}</p>
-            
-          </div>
-        ))}
-      </div>
+
+      {isMobile ? (
+        // Show Swiper Slider for Mobile Users
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={30}
+          slidesPerView={1}
+          loop={true}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 2500 }}
+          className="w-full md:w-2/3 mx-auto mt-8"
+        >
+          {cardItem.map(({ id, logo, name, description }) => (
+            <SwiperSlide key={id}>
+              <div className="bg-[#121212] border border-gray-700 backdrop-blur-md rounded-xl shadow-lg p-5 text-center">
+                <img
+                  src={logo}
+                  className="w-24 h-24 mx-auto rounded-full border-2 border-[#38BDF8] p-2 shadow-md"
+                  alt={`${name} Logo`}
+                />
+                <h2 className="text-xl font-semibold mt-3 text-[#E2E8F0]">
+                  {name}
+                </h2>
+                <p className="text-gray-400 text-sm mt-2">{description}</p>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      ) : (
+        // Show Grid Layout for Desktop Users
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
+          {cardItem.map(({ id, logo, name, description }) => (
+            <div
+              key={id}
+              className="bg-[#121212] border border-gray-700 backdrop-blur-md rounded-xl shadow-lg p-5 text-center hover:scale-105 hover:shadow-lg hover:border-[#38BDF8] transition duration-300"
+            >
+              <img
+                src={logo}
+                className="w-24 h-24 mx-auto rounded-full border-2 border-[#38BDF8] p-2 shadow-md"
+                alt={`${name} Logo`}
+              />
+              <h2 className="text-xl font-semibold mt-3 text-[#E2E8F0]">
+                {name}
+              </h2>
+              <p className="text-gray-400 text-sm mt-2">{description}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
